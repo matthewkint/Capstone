@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Employee Statisfaction</h1>
+    <h2>What is your favorite color?</h2>
+
+    <div>
+        <table>
+            <!-- Row 1 holds the multiple choice answers -->
+            <tr id="answersRow">
+                <td>
+                    <label for="option1">Red</label>
+                </td>
+                <td>
+                    <label for="option2">Green</label>
+                </td>
+                <td>
+                    <label for="option3">Blue</label>
+                </td>
+                <td>
+                    <label for="option4">Purple</label>
+                </td>
+            </tr>
+            <!-- Row 2 holds radio buttons -->
+            <tr id="buttonsRow">
+                <td>
+                    <input type="radio" id="option1" name="question" value="0">
+                </td>
+                <td>
+                    <input type="radio" id="option2" name="question" value="1">
+                </td>
+                <td>
+                    <input type="radio" id="option3" name="question" value="2">
+                </td>
+                <td>
+                    <input type="radio" id="option4" name="question" value="3">
+                </td>
+            </tr>
+            <!-- Row 3 holds next button -->
+            <tr>
+                <td>
+                    <input type="button" value="Next">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="./scripts.js"></script>
+</body>
+</html>
