@@ -1,0 +1,96 @@
+* {
+    box-sizing: 		border-box;
+}
+
+/* For phones (portrait) unless another @media rule below is fired */
+@media only screen and (max-width: 500px) {
+    .col-sm-00  {display: 		   none; }
+    .col-sm-01  {width: 		  8.33%; }
+    .col-sm-02  {width: 		 16.66%; }
+    .col-sm-03  {width: 		 25.00%; }
+    .col-sm-04  {width: 		 33.33%; }
+    .col-sm-05  {width: 		 41.66%; }
+    .col-sm-06  {width: 		 50.00%; }
+    .col-sm-07  {width: 		 58.33%; }
+    .col-sm-08  {width: 		 66.66%; }
+    .col-sm-09  {width: 		 75.00%; }
+    .col-sm-10  {width: 		 83.33%; }
+    .col-sm-11  {width: 		 91.66%; }
+    .col-sm-12 	{width: 		   100%; }
+    body 		{background-color: white;}
+    [class*="col-sm-"] {
+        padding: 2%;
+    }
+
+    .spacing { border: none; }
+}
+
+/* For medium screens (e.g. landscape phones and portrait tablets) */
+@media only screen and (min-width: 501px) {
+    .col-md-00  {display: 		   none; }
+    .col-md-01  {width: 		  8.33%; }
+    .col-md-02  {width: 		 16.66%; }
+    .col-md-03  {width: 		 25.00%; }
+    .col-md-04  {width: 		 33.33%; }
+    .col-md-05  {width: 		 41.66%; }
+    .col-md-06  {width: 		 50.00%; }
+    .col-md-07  {width: 		 58.33%; }
+    .col-md-08  {width: 		 66.66%; }
+    .col-md-09  {width: 		 75.00%; }
+    .col-md-10  {width: 		 83.33%; }
+    .col-md-11  {width: 		 91.66%; }
+    .col-md-12  {width: 		100.00%; }
+    body 		{background-color: white;}
+    [class*="col-md-"] {
+        padding: 2%;
+    }
+}
+
+/* For large screens or landscape tablets*/		
+@media only screen and (min-width: 1024px) {
+    .col-md-00  {display: 		initial; }
+    .col-sm-00  {display:       initial; }
+    .col-lg-01  {width: 		  8.33%; }
+    .col-lg-02  {width: 		 16.66%; }
+    .col-lg-03  {width: 		 25.00%; }
+    .col-lg-04  {width: 		 33.33%; }
+    .col-lg-05  {width: 		 41.66%; }
+    .col-lg-06  {width: 		 50.00%; }
+    .col-lg-07  {width: 		 58.33%; }
+    .col-lg-08  {width: 		 66.66%; }
+    .col-lg-09  {width: 		 75.00%; }
+    .col-lg-10 	{width: 		 83.33%; }
+    .col-lg-11 	{width: 		 91.66%; }
+    .col-lg-12 	{width: 		100.00%; }
+    body 		{background-color: white;}
+    [class*="col-lg-"] {
+        padding: 1%;
+    }
+}
+
+[class*="col-"] {
+    float: 				left;
+    border-radius: 		10px;
+}
+
+.row::after {
+    content: 			"";
+    clear: 				both;
+    display: 			block;
+}
+
+.white {background-color: #ffffff;}
+.gray {background-color: grey;}
+
+body {
+    font-family: 		sans-serif;
+    font-size: 			12px;		
+    text-align: 		center;
+}
+
+.menubar { background-color: antiquewhite; }
+#signInButton { background-color: antiquewhite; }
+
+.option { 
+    border: 1px solid black;
+}
