@@ -20,6 +20,8 @@ connObj.connect( function(err) { //this function is where we actually connect.
 		console.log("Connected to Db! :-)  ID= " + connObj.threadId);
 });
 
+//insert statements here
+
 connObj.end(); //closes the connection
 
 //DB info
