@@ -94,3 +94,11 @@ body {
 .option { 
     border: 1px solid black;
 }
+input.selector{
+    height: 250px;
+    width: 350px;
+    margin: 30px;
+}
+input.selector:hover{
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 1), 0 17px 50px 0 rgba(0,0,0,1);
+}

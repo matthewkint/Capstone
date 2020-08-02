@@ -22,7 +22,7 @@ function signIn(){
 			
 			console.log("Username, idEmployees" + inputUsername, employeeData[entry].idEmployees);
 			if (employeeData[entry].Password == inputPassword){
-				window.location.replace("quiz.html");
+				window.location.replace("quiz_selector.html");
 				break;
 			}//end of nested if
 
@@ -37,3 +37,21 @@ function signIn(){
 	}//end of for
 
 }//end of signIn()
+
+
+//Picking a quiz to take
+function startQuiz(value){
+if(value == "clone"){
+	window.location.replace("quiz.html");
+	console.log(value)
+}else if (value == "disney"){
+	window.location.replace("quiz.html");
+	console.log(value)
+}else if (value == "harry"){
+	window.location.replace("quiz.html");
+	console.log(value)
+}else{
+	window.location.replace ("quiz.html");
+	console.log(value)
+}
+}
