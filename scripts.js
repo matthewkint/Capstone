@@ -1,33 +1,39 @@
-/* mySQL connectivity sample */
 
-var mySQLpointer, connObj;
+var counter = 1;
+var employeeData = JSON.parse(data);//data is a json object declared in employees.js
+console.log(employeeData);
+// console.log(employeeData.length)
 
-mySQLpointer = require("mysql"); //this imports the mysql module
+function signIn(){
+	var inputUsername = '';
+	var inputPassword = '';
 
-connObj = mySQLpointer.createConnection( 
-			{ 
-				host:     "107.180.1.16", 
-				user:     "summer2020group3",
-				password: "!!Group3",
-				database: "summer2020group3"
-			} );
+	if (counter > 3){
+		alert("You ran out of attempts.\nSince you seem like a nice person you can just reload the page :)");
+		return;
+	}
 
-connObj.connect( function(err) { //this function is where we actually connect.
-	if (err) 
-		// throw err; or use the follwowing command
-		console.log("Connection Error: " + err.stack);
-	else 
-		console.log("Connected to Db! :-)  ID= " + connObj.threadId);
-});
+	inputUsername = document.getElementById('username').value;
+	inputPassword = document.getElementById('password').value;
+	//alert("Username is: " + inputUsername + "\nPassword is: " + inputPassword); //for testing
+	for (entry = 0; entry < employeeData.length; entry++) {
 
-//insert statements here
+		if (inputUsername == employeeData[entry].idEmployees){
+			
+			console.log("Username, idEmployees" + inputUsername, employeeData[entry].idEmployees);
+			if (employeeData[entry].Password == inputPassword){
+				window.location.replace("quiz.html");
+				break;
+			}//end of nested if
 
-connObj.end(); //closes the connection
+		} else if(entry == (employeeData.length - 1)) {
 
-//DB info
+			console.log("entry, employeeData.length  " + entry, employeeData.length);
+			alert("That username isn't reccognized. Please try again.\nAttempt " 
+			+ counter + "/3");
+			counter++;
+			console.log(counter);
+		}//end of else if
+	}//end of for
 
-//Host: 107.180.1.16
-//Port: 3306 this doesn't matter right now.
-//User: summer2020group3
-//PW: !!Group3
-//Default Schema: summer2020group3
+}//end of signIn()
