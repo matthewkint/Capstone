@@ -1,7 +1,10 @@
 
 var counter = 1;
+var questionNumber = 0; //actually it's one, but we'll say zero for our array :).
 var employeeData = JSON.parse(data);//data is a json object declared in employees.js
 console.log(employeeData);
+var potterQuestions = JSON.parse(potter);
+console.log(potterQuestions);
 // console.log(employeeData.length)
 
 var mainQuestions = {"Q1": "You’ve made it to Hogwarts, which means you’ve already bought a wand from Ollivander’s. What material is at its core?", "1a": "Phoenix Feather", "1b": "Dragon Heartstring", "1c": "Unicorn Hair", 
@@ -89,5 +92,24 @@ function loadQuestion() {
 		qNum += 1;
 	} else {
 		document.getElementById("question").innerHTML = "End of quiz";
+	}
+}
+
+function populateNext() {
+	questionNumber++;
+	console.log(questionNumber);
+
+	//write question
+	document.getElementById("question").innerHTML = potterQuestions[questionNumber].Question;
+
+	//write options
+	document.getElementById('option0').innerHTML = potterQuestions[questionNumber].Choice1;
+	document.getElementById("option1").innerHTML = potterQuestions[questionNumber].Choice2;
+	document.getElementById('option2').innerHTML = potterQuestions[questionNumber].Choice3;
+	document.getElementById('option3').innerHTML = potterQuestions[questionNumber].Choice4;
+
+	//when finished, show them the results page
+	if(questionNumber>=potterQuestions.length){
+		//redirect to results page
 	}
 }
