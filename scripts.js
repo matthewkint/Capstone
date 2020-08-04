@@ -68,16 +68,21 @@ if(value == "clone"){
 }
 
 function findSelection() {
-	var options = document.getElementsByName("option")
-	for(i = 0; i < options.length; i++) { 
-		if(options[i].checked) 
-		console.log("User chose: " + options[i].value)
+	if (document.getElementById("nextButton").value == "Finish") {
+		window.location.replace("results.html");
+	} else {
+		var options = document.getElementsByName("option")
+		for(i = 0; i < options.length; i++) {
+			if(options[i].checked) {
+			console.log("User chose: " + options[i].value)
+			var userSelection = options[i].value;
+			}
+		}
+		loadQuestion();
 	}
-	loadQuestion();
 } 
 var qNum = 1
 function loadQuestion() {
-	console.log("i is: " +  qNum)
 
 	if (qNum <= 10) {
 		document.getElementById("question").innerHTML = mainQuestions["Q" + qNum];
@@ -86,8 +91,25 @@ function loadQuestion() {
 		document.getElementById("option2").innerHTML = mainQuestions[qNum + "c"];
 		document.getElementById("option3").innerHTML = mainQuestions[qNum + "d"];
 
+		document.getElementById("optionImage0").src = "./images/beverages/coffee.png";
+		document.getElementById("optionImage1").src = "./images/beverages/coffee.png";
+		document.getElementById("optionImage2").src = "./images/beverages/coffee.png";
+		document.getElementById("optionImage3").src = "./images/beverages/coffee.png";
+
 		qNum += 1;
 	} else {
 		document.getElementById("question").innerHTML = "End of quiz";
+
+		document.getElementById("optionImage0").style.display = "none";
+		document.getElementById("optionImage1").style.display = "none";
+		document.getElementById("optionImage2").style.display = "none";
+		document.getElementById("optionImage3").style.display = "none";
+
+		var optionDivs = document.getElementsByClassName("option")
+		for(i = 0; i < optionDivs.length; i++) {
+			optionDivs[i].style.display = "none";	
+		}
+
+		document.getElementById("nextButton").value = "Finish";
 	}
 }
