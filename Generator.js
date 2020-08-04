@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const csvFilePath='Employees.csv'; 
 //file path is Employees.csv for me, but you'll have to change it to "Questions.csv" if you're doing that one.
 //This .csv file is in my current directory, as you can see.
@@ -29,7 +28,6 @@ csv()
 })
 
 //I feel a little foolish putting in comments at all this simple parts, but I hope it helps.
-=======
 const csvFilePath='Employees.csv'; 
 //file path is Employees.csv for me, but you'll have to change it to "Questions.csv" if you're doing that one.
 //This .csv file is in my current directory, as you can see.
@@ -60,5 +58,4 @@ csv()
 })
 
 //I feel a little foolish putting in comments at all this simple parts, but I hope it helps.
->>>>>>> scott_wk5
 //Feel free to ask me any questions.
