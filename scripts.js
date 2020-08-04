@@ -30,25 +30,28 @@ function signIn(){
 	inputUsername = document.getElementById('username').value;
 	inputPassword = document.getElementById('password').value;
 	//alert("Username is: " + inputUsername + "\nPassword is: " + inputPassword); //for testing
-	for (entry = 0; entry < employeeData.length; entry++) {
 
-		if (inputUsername == employeeData[entry].idEmployees){
-			
-			console.log("Username, idEmployees" + inputUsername, employeeData[entry].idEmployees);
-			if (employeeData[entry].Password == inputPassword){
-				window.location.replace("quiz_selector.html");
-				break;
-			}//end of nested if
+	if (inputUsername != "" && inputPassword != "") {
+		for (entry = 0; entry < employeeData.length; entry++) {
 
-		} else if(entry == (employeeData.length - 1)) {
+			if (inputUsername == employeeData[entry].idEmployees){
+				
+				console.log("Username, idEmployees" + inputUsername, employeeData[entry].idEmployees);
+				if (employeeData[entry].Password == inputPassword){
+					window.location.replace("quiz_selector.html");
+					break;
+				}//end of nested if
 
-			console.log("entry, employeeData.length  " + entry, employeeData.length);
-			alert("That username isn't reccognized. Please try again.\nAttempt " 
-			+ counter + "/3");
-			counter++;
-			console.log(counter);
-		}//end of else if
-	}//end of for
+			} else if(entry == (employeeData.length - 1)) {
+
+				console.log("entry, employeeData.length  " + entry, employeeData.length);
+				alert("That username isn't reccognized. Please try again.\nAttempt " 
+				+ counter + "/3");
+				counter++;
+				console.log(counter);
+			}//end of else if
+		}//end of for
+	} //end of if
 
 }//end of signIn()
 
@@ -69,6 +72,18 @@ if(value == "clone"){
 	console.log(value)
 }
 }
+
+var form = document.querySelector("#questionForm");
+
+// form.addEventListener("submit", function(event) {
+// 	findSelection();
+// 	console.log("Next pressed, and a selection was made")
+// }, false);
+
+form.addEventListener("submit", function(event) {
+	findSelection();
+	event.preventDefault();
+  }, false);
 
 function findSelection() {
 	if (document.getElementById("nextButton").value == "Finish") {
@@ -99,6 +114,13 @@ function loadQuestion() {
 		document.getElementById("optionImage2").src = "./images/beverages/coffee.png";
 		document.getElementById("optionImage3").src = "./images/beverages/coffee.png";
 
+		for (i=0; i<4; i++) {
+			document.getElementById("radio" + i).checked = false;
+			console.log("radio" + i)
+		}
+
+		// document.getElementById("radio0").checked = false;
+
 		qNum += 1;
 	} else {
 		document.getElementById("question").innerHTML = "End of quiz";
@@ -117,21 +139,21 @@ function loadQuestion() {
 	}
 }
 
-function populateNext() {
-	questionNumber++;
-	console.log(questionNumber);
+// function populateNext() {
+// 	questionNumber++;
+// 	console.log(questionNumber);
 
-	//write question
-	document.getElementById("question").innerHTML = potterQuestions[questionNumber].Question;
+// 	//write question
+// 	document.getElementById("question").innerHTML = potterQuestions[questionNumber].Question;
 
-	//write options
-	document.getElementById('option0').innerHTML = potterQuestions[questionNumber].Choice1;
-	document.getElementById("option1").innerHTML = potterQuestions[questionNumber].Choice2;
-	document.getElementById('option2').innerHTML = potterQuestions[questionNumber].Choice3;
-	document.getElementById('option3').innerHTML = potterQuestions[questionNumber].Choice4;
+// 	//write options
+// 	document.getElementById('option0').innerHTML = potterQuestions[questionNumber].Choice1;
+// 	document.getElementById("option1").innerHTML = potterQuestions[questionNumber].Choice2;
+// 	document.getElementById('option2').innerHTML = potterQuestions[questionNumber].Choice3;
+// 	document.getElementById('option3').innerHTML = potterQuestions[questionNumber].Choice4;
 
-	//when finished, show them the results page
-	if(questionNumber>=potterQuestions.length){
-		//redirect to results page
-	}
-}
+// 	//when finished, show them the results page
+// 	if(questionNumber>=potterQuestions.length){
+// 		//redirect to results page
+// 	}
+// }
