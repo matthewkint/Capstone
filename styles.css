@@ -102,3 +102,7 @@ input.selector{
 input.selector:hover{
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 1), 0 17px 50px 0 rgba(0,0,0,1);
 }
+
+#signInButton{
+    text-align: center;
+}
