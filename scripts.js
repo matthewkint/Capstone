@@ -1,4 +1,3 @@
-
 var counter = 1;
 var questionNumber = 0; //actually it's one, but we'll say zero for our array :).
 var employeeData = JSON.parse(data);//data is a json object declared in employees.js
@@ -11,8 +10,6 @@ var officeQuestions = JSON.parse(office);
 var cloneQuestions = JSON.parse(clone);
 var quizType = "";
 
-// console.log(employeeData.length)
-
 function signIn(){
 	var inputUsername = '';
 	var inputPassword = '';
@@ -24,16 +21,13 @@ function signIn(){
 
 	inputUsername = document.getElementById('username').value;
 	inputPassword = document.getElementById('password').value;
-	//alert("Username is: " + inputUsername + "\nPassword is: " + inputPassword); //for testing
 
 	if (inputUsername != "" && inputPassword != "") {
 		for (entry = 0; entry < employeeData.length; entry++) {
-
-			if (inputUsername == employeeData[entry].idEmployees){
-				
-				console.log("Username, idEmployees" + inputUsername, employeeData[entry].idEmployees);
+			if (inputUsername == employeeData[entry].idEmployees){				
+				console.log("Username, idEmployees: " + inputUsername, employeeData[entry].idEmployees);
 				if (employeeData[entry].Password == inputPassword){
-					window.location.replace("quiz_selector.html");
+					window.location.replace("./quiz_selector.html");
 					break;
 				}//end of nested if
 
@@ -46,7 +40,9 @@ function signIn(){
 				console.log(counter);
 			}//end of else if
 		}//end of for
-	} //end of if
+	} else {
+		alert("Please enter a username and password")
+	}
 
 }//end of signIn()
 
@@ -70,17 +66,14 @@ if(value == "clone"){
 }
 }
 
-var form = document.querySelector("#questionForm");
+var questionForm = document.querySelector("#questionForm");
 
-// form.addEventListener("submit", function(event) {
-// 	findSelection();
-// 	console.log("Next pressed, and a selection was made")
-// }, false);
-
-form.addEventListener("submit", function(event) {
-	findSelection();
-	event.preventDefault();
-  }, false);
+if (questionForm) {
+	questionForm.addEventListener("submit", function(event) {
+		findSelection();
+		event.preventDefault();
+	}, false);
+}
 
 function findSelection() {
 	if (document.getElementById("nextButton").value == "Finish") {
@@ -287,28 +280,3 @@ function loadQuestion(value) {
 
 }
 }
-
-
-
-
-
-// function populateNext() {
-// 	questionNumber++;
-// 	console.log(questionNumber);
-
-// 	//write question
-// 	document.getElementById("question").innerHTML = potterQuestions[questionNumber].Question;
-
-// 	//write options
-// 	document.getElementById('option0').innerHTML = potterQuestions[questionNumber].Choice1;
-// 	document.getElementById("option1").innerHTML = potterQuestions[questionNumber].Choice2;
-// 	document.getElementById('option2').innerHTML = potterQuestions[questionNumber].Choice3;
-// 	document.getElementById('option3').innerHTML = potterQuestions[questionNumber].Choice4;
-
-// 	//when finished, show them the results page
-// 	if(questionNumber>=potterQuestions.length){
-// 		//redirect to results page
-// 	}
-// }
-
-
