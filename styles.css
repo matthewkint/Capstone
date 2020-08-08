@@ -79,8 +79,28 @@
     display: 			block;
 }
 
-.white {background-color: #ffffff;}
+.wht {background-color: whitesmoke;}
 .gray {background-color: grey;}
+
+.harry {
+    background-image: url("./images/backgrounds/potter.jpg");
+    background-position: center;
+}
+
+.clone {
+    background-image: url("./images/backgrounds/clone.jpg");
+    background-position: center;
+}
+
+.office {
+    background-image: url("./images/backgrounds/office.jpg");
+    background-position: center;
+}
+
+.disney {
+    background-image: url("./images/backgrounds/disney.jpeg");
+    background-position: center;
+}
 
 body {
     font-family: 		sans-serif;
@@ -88,12 +108,34 @@ body {
     text-align: 		center;
 }
 
-.menubar { background-color: antiquewhite; }
+
+label {
+    font-size: 2em;
+}
+
+#nextButton {
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+
+#question {
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.menubar { 
+    background-color: whitesmoke;
+    font-size: 2.5em;
+    font-style: italic;
+}
+
 #signInButton { background-color: antiquewhite; }
 
 .option { 
     border: 1px solid black;
+    margin-top: 1em;
 }
+
 input.selector{
     height: 250px;
     width: 350px;
