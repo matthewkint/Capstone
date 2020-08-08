@@ -103,10 +103,6 @@ function loadQuestion(value) {
 				document.getElementById("option2").innerHTML = disneyQuestions[qNum].Choice3;
 				document.getElementById("option3").innerHTML = disneyQuestions[qNum].Choice4;
 
-				document.getElementById("optionImage0").src = disneyQuestions[qNum].Image0;
-				document.getElementById("optionImage1").src = disneyQuestions[qNum].Image1;
-				document.getElementById("optionImage2").src = disneyQuestions[qNum].Image2;
-				document.getElementById("optionImage3").src = disneyQuestions[qNum].Image3;
 				noSkip = false;
 			} else {
 				qNum -= 1;
@@ -126,11 +122,6 @@ function loadQuestion(value) {
 		} else {
 			document.getElementById("question").innerHTML = "End of quiz";
 	
-			document.getElementById("optionImage0").style.display = "none";
-			document.getElementById("optionImage1").style.display = "none";
-			document.getElementById("optionImage2").style.display = "none";
-			document.getElementById("optionImage3").style.display = "none";
-	
 			var optionDivs = document.getElementsByClassName("option")
 			for(i = 0; i < optionDivs.length; i++) {
 				optionDivs[i].style.display = "none";	
@@ -148,10 +139,6 @@ function loadQuestion(value) {
 			document.getElementById("option2").innerHTML = potterQuestions[qNum].Choice3;
 			document.getElementById("option3").innerHTML = potterQuestions[qNum].Choice4;
 
-			document.getElementById("optionImage0").src = potterQuestions[qNum].Image0;
-			document.getElementById("optionImage1").src = potterQuestions[qNum].Image1;
-			document.getElementById("optionImage2").src = potterQuestions[qNum].Image2;
-			document.getElementById("optionImage3").src = potterQuestions[qNum].Image3;
 			noSkip = false;
 		} else {
 			qNum -= 1;
@@ -170,11 +157,6 @@ function loadQuestion(value) {
 		console.log(qNum)
 	} else {
 		document.getElementById("question").innerHTML = "End of quiz";
-
-		document.getElementById("optionImage0").style.display = "none";
-		document.getElementById("optionImage1").style.display = "none";
-		document.getElementById("optionImage2").style.display = "none";
-		document.getElementById("optionImage3").style.display = "none";
 
 		var optionDivs = document.getElementsByClassName("option")
 		for(i = 0; i < optionDivs.length; i++) {
@@ -196,10 +178,6 @@ function loadQuestion(value) {
 			document.getElementById("option2").innerHTML = officeQuestions[qNum].Choice3;
 			document.getElementById("option3").innerHTML = officeQuestions[qNum].Choice4;
 
-			document.getElementById("optionImage0").src = officeQuestions[qNum].Image0;
-			document.getElementById("optionImage1").src = officeQuestions[qNum].Image1;
-			document.getElementById("optionImage2").src = officeQuestions[qNum].Image2;
-			document.getElementById("optionImage3").src = officeQuestions[qNum].Image3;
 			noSkip = false;
 		} else {
 			qNum -= 1;
@@ -217,11 +195,6 @@ function loadQuestion(value) {
 		qNum += 1;
 	} else {
 		document.getElementById("question").innerHTML = "End of quiz";
-
-		document.getElementById("optionImage0").style.display = "none";
-		document.getElementById("optionImage1").style.display = "none";
-		document.getElementById("optionImage2").style.display = "none";
-		document.getElementById("optionImage3").style.display = "none";
 
 		var optionDivs = document.getElementsByClassName("option")
 		for(i = 0; i < optionDivs.length; i++) {
@@ -242,10 +215,6 @@ function loadQuestion(value) {
 			document.getElementById("option2").innerHTML = cloneQuestions[qNum].Choice3;
 			document.getElementById("option3").innerHTML = cloneQuestions[qNum].Choice4;
 
-			document.getElementById("optionImage0").src = cloneQuestions[qNum].Image0;
-			document.getElementById("optionImage1").src = cloneQuestions[qNum].Image1;
-			document.getElementById("optionImage2").src = cloneQuestions[qNum].Image2;
-			document.getElementById("optionImage3").src = cloneQuestions[qNum].Image3;
 			noSkip = false;
 		} else {
 			qNum -= 1;
@@ -263,11 +232,6 @@ function loadQuestion(value) {
 		qNum += 1;
 	} else {
 		document.getElementById("question").innerHTML = "End of quiz";
-
-		document.getElementById("optionImage0").style.display = "none";
-		document.getElementById("optionImage1").style.display = "none";
-		document.getElementById("optionImage2").style.display = "none";
-		document.getElementById("optionImage3").style.display = "none";
 
 		var optionDivs = document.getElementsByClassName("option")
 		for(i = 0; i < optionDivs.length; i++) {
