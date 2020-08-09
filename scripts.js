@@ -1,16 +1,15 @@
 var counter = 1;
 var questionNumber = 0; //actually it's one, but we'll say zero for our array :).
-var employeeData = JSON.parse(data);//data is a json object declared in data.js
+var employeeData = JSON.parse(data); //data is a json object declared in data.js
 console.log(employeeData);
 var potterQuestions = JSON.parse(potter);
-console.log(potterQuestions);
 var disneyQuestions = JSON.parse(disney);
 var MainQuestions = JSON.parse(main);
 var officeQuestions = JSON.parse(office);
 var cloneQuestions = JSON.parse(clone);
 var quizType = "";
 var numberQuestion = 1; //for the findSelection function
-
+var newData = '';
 //how to make change key names example from editing employee data
 // var choiceNum = ""
 // for (i=0; i<=4; i++) {
@@ -65,17 +64,16 @@ function startQuiz(value){
 	quizType = value
 if(value == "clone"){
 	window.location.replace("quizClone.html");
-	console.log(value)
 }else if (value == "disney"){
 	window.location.replace("quizDisney.html");
-	//window.location.replace("quiz.html");
-	console.log(value)
+	
+	// console.log(value)
 }else if (value == "harry"){
 	window.location.replace("quizHarry.html");
-	console.log(value)
+	// console.log(value)
 }else{
 	window.location.replace ("quizOffice.html");
-	console.log(value)
+	// console.log(value)
 }
 }
 
@@ -92,7 +90,21 @@ if (questionForm) {
 function findSelection() {
 	if (document.getElementById("nextButton").value == "Finish") {
 		//questionNumber = 1; //is this necessary
-		window.location.replace("results.html");
+		switch (quizType){
+			case "disney":
+				window.location.replace("disneyResults.html");
+				break;
+			case "office":
+				window.location.replace("officeResults.html");
+				break;
+			case "clone":
+				window.location.replace("cloneResults.html");
+			break;
+			case "harry":
+				window.location.replace("harryResults.html");
+			break;
+		}
+		
 	} else {
 		var options = document.getElementsByName("option")
 		for(i = 0; i < options.length; i++) {
@@ -105,19 +117,14 @@ function findSelection() {
 
 			//store option number as choice[questionNumber] in employee object
 			employeeData[employee]["choice" + questionNumber] = options[i].value;
-
+	
 			//print results to console to make sure it's working
 			console.log(qNum)
-			console.log(employeeData);
-
+			console.log(employeeData)
 			//example code used earlier to edit employee objeccts
 			//employeeData[i]["choice" + (b + 1)] = '';
-
-			//what?
-			var userSelection = options[i].value;
 			}
 		}
-		console.log(quizType);
 		loadQuestion(quizType);
 	}
 	questionNumber++;
@@ -127,14 +134,13 @@ var noSkip = true
 function loadQuestion(value) {
 	quizType = value
 	if(value == 'disney'){
-		if (qNum <= 10){
+		if (qNum < 2){
 			if(noSkip == true){
 				document.getElementById("question").innerHTML = disneyQuestions[qNum].Question;
 				document.getElementById("option0").innerHTML = disneyQuestions[qNum].Choice1;
 				document.getElementById("option1").innerHTML = disneyQuestions[qNum].Choice2;
 				document.getElementById("option2").innerHTML = disneyQuestions[qNum].Choice3;
 				document.getElementById("option3").innerHTML = disneyQuestions[qNum].Choice4;
-
 				noSkip = false;
 			} else {
 				qNum -= 1;
@@ -163,7 +169,7 @@ function loadQuestion(value) {
 	}
 	} else if (value == 'harry'){
 		quizType = value
-	if (qNum <= 10) {
+	if (qNum < 10) {
 		if(noSkip == true){
 			document.getElementById("question").innerHTML = potterQuestions[qNum].Question;
 			document.getElementById("option0").innerHTML = potterQuestions[qNum].Choice1;
@@ -202,7 +208,7 @@ function loadQuestion(value) {
 
 	
 } else if(value == 'office'){
-	if (qNum <= 10) {
+	if (qNum < 10) {
 		if(noSkip == true){
 			document.getElementById("question").innerHTML = officeQuestions[qNum].Question;
 			document.getElementById("option0").innerHTML = officeQuestions[qNum].Choice1;
@@ -239,7 +245,7 @@ function loadQuestion(value) {
 
 
 } else {
-	if (qNum <= 10) {
+	if (qNum < 10) {
 		if(noSkip == true){
 			document.getElementById("question").innerHTML = cloneQuestions[qNum].Question;
 			document.getElementById("option0").innerHTML = cloneQuestions[qNum].Choice1;
@@ -275,4 +281,16 @@ function loadQuestion(value) {
 
 
 }
+}
+
+// function storeResult(){
+// 	var options = document.getElementsByName("option");
+// 	for(i = 0; i < options.length; i++) {
+// 		if(options[i].checked) {
+// 			themeResults = themeResults + Number(options[i].value);
+// 		}
+// 	}
+// }
+function showResult(){
+	console.log(employeeData);
 }
