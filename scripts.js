@@ -10,7 +10,8 @@ var cloneQuestions = JSON.parse(clone);
 var quizType = "";
 var numberQuestion = 1; //for the findSelection function
 var newData = '';
-//how to make change key names example from editing employee data
+
+//how to make changing key names example from editing employee data
 // var choiceNum = ""
 // for (i=0; i<=4; i++) {
 // 	for (b=0; b<=19; b++){
@@ -88,8 +89,22 @@ if (questionForm) {
 }
 
 function findSelection() {
+	var employee = localStorage.getItem("user");
 	if (document.getElementById("nextButton").value == "Finish") {
 		//questionNumber = 1; //is this necessary
+
+		//store employee responses to local storage.
+		//Note that using this method this data will be replaced if 
+		//a different employee takes the quiz)
+		var input = JSON.stringify(employeeData[employee]);
+		localStorage.userInput = input;
+		localStorage.quizTaken = quizType;
+
+		//for testing
+		// console.log(localStorage.userInput);
+		// console.log("\nQuiztype\n");
+		// console.log(localStorage.quizTaken);
+		alert("Last chance to look at the console before you're redirected");
 		switch (quizType){
 			case "disney":
 				window.location.replace("disneyResults.html");
@@ -112,7 +127,7 @@ function findSelection() {
 			console.log("User chose: " + options[i].value)
 
 			//get user's index number from local storage
-			var employee = localStorage.getItem("user");
+			//var employee = localStorage.getItem("user");
 			console.log(employee);
 
 			//store option number as choice[questionNumber] in employee object
