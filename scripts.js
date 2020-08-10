@@ -9,7 +9,7 @@ var officeQuestions = JSON.parse(office);
 var cloneQuestions = JSON.parse(clone);
 var quizType = "";
 var numberQuestion = 1; //for the findSelection function
-var newData = '';
+
 
 //how to make changing key names example from editing employee data
 // var choiceNum = ""
@@ -101,24 +101,12 @@ function findSelection() {
 		localStorage.quizTaken = quizType;
 
 		//for testing
-		// console.log(localStorage.userInput);
-		// console.log("\nQuiztype\n");
-		// console.log(localStorage.quizTaken);
+		console.log(localStorage.userInput);
+		console.log("\nQuiztype\n");
+		console.log(localStorage.quizTaken);
 		alert("Last chance to look at the console before you're redirected");
-		switch (quizType){
-			case "disney":
-				window.location.replace("disneyResults.html");
-				break;
-			case "office":
-				window.location.replace("officeResults.html");
-				break;
-			case "clone":
-				window.location.replace("cloneResults.html");
-			break;
-			case "harry":
-				window.location.replace("harryResults.html");
-			break;
-		}
+		//redirects to results webpage. 
+		window.location.replace("results.html");
 		
 	} else {
 		var options = document.getElementsByName("option")
@@ -146,10 +134,11 @@ function findSelection() {
 } 
 var qNum = 0;
 var noSkip = true
+// takes the quiz the user has pick and intergrated the main questions into the theme quiz 
 function loadQuestion(value) {
 	quizType = value
 	if(value == 'disney'){
-		if (qNum < 2){
+		if (qNum < 10){
 			if(noSkip == true){
 				document.getElementById("question").innerHTML = disneyQuestions[qNum].Question;
 				document.getElementById("option0").innerHTML = disneyQuestions[qNum].Choice1;
@@ -164,6 +153,7 @@ function loadQuestion(value) {
 				document.getElementById("option1").innerHTML = MainQuestions[qNum].Choice2;
 				document.getElementById("option2").innerHTML = ''
 				document.getElementById("option3").innerHTML = ''
+	
 				noSkip = true;
 
 			}
@@ -302,10 +292,128 @@ function loadQuestion(value) {
 // 	var options = document.getElementsByName("option");
 // 	for(i = 0; i < options.length; i++) {
 // 		if(options[i].checked) {
-// 			themeResults = themeResults + Number(options[i].value);
+// 			return console.log(options[i].value + "LOOK at this number and see");
+// 			//themeResults = themeResults + Number(options[i].value);
 // 		}
 // 	}
 // }
+
+// shows the results of theme test 
+// displays img, charater name, description
 function showResult(){
-	console.log(employeeData);
-}
+	var total = 0
+	output = JSON.parse(localStorage.userInput)
+	outputArray = Object.values(output)
+	console.log(output)
+	console.log(outputArray)
+	outputArray.splice(0, 4)
+	for(i=0; i<outputArray.length; i++){
+		if(i % 2 == 1){
+			total = total + Number(outputArray[i])
+		}
+	}
+	if (localStorage.quizTaken == "disney"){
+		if(total < 7 ){
+			document.getElementById("charater").innerHTML = "Vanellope Von Schweetz";
+			document.getElementById("imageCharater").src = "images/Results/Vanellope.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You are strong, fun, and an absolute legend on the race track. You’re always up for an adventure and you approach every challenge with positivity and curiosity. You’re our hero!";
+			//console.log("LEss than 7");
+
+		} else if(total >= 7 && total < 14){
+			document.getElementById("charater").innerHTML = "Jasmine";
+			document.getElementById("imageCharater").src = "images/Results/Jasmine.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You’re driven, energetic, and compassionate. You want to see the world and go on as many adventures as possible. We know you are destined for great things!";
+			
+			//console.log("Under 14");
+
+		} else if (total >= 14 && total < 21 ){
+			document.getElementById("charater").innerHTML = "Ariel";
+			document.getElementById("imageCharater").src = "images/Results/Ariel.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You’re friendly and fun, with curiosity that will take you on grand adventures. Just be careful not to sign any contracts with an evil sea witch!";
+			
+			//console.log("Under 21");
+
+		} else {
+			document.getElementById("charater").innerHTML = "Cinderella";
+			document.getElementById("imageCharater").src = "images/Results/Cinderella.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You never give up on your dreams, and you always remember to be kind to others. No matter what challenges you face, you’ll be brave enough to conquer them!";
+			
+			//console.log("Under 30")
+		}
+	} // end of theme if statement 
+	 else if (localStorage.quizTaken == "office"){
+		if(total < 7 ){
+			document.getElementById("charater").innerHTML = "Meredith Palmer";
+			document.getElementById("imageCharater").src = "images/Results/Meredith.jpg";
+			document.getElementById("charaterDescription").innerHTML = "Meredith was always a bit of a party animal but you could probably keep up with her!";
+			// console.log("LEss than 7");
+		} else if(total >= 7 && total < 14){
+			document.getElementById("charater").innerHTML = "Angela Martin";
+			document.getElementById("imageCharater").src = "images/Results/Angela.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You love cats and you love keeping your private life private. You might also find clothes in the children's section of Gap. You're just like Angela Martin.";
+			// console.log("Under 14");
+		} else if (total >= 14 && total < 21 ){
+			document.getElementById("charater").innerHTML = "Jim Halpert ";
+			document.getElementById("imageCharater").src = "images/Results/Jim.png";
+			document.getElementById("charaterDescription").innerHTML = "You love pranks and making your time at work fun!";
+			// console.log("Under 21");
+		} else {
+			document.getElementById("charater").innerHTML = "Michael Scott";
+			document.getElementById("imageCharater").src = "images/Results/Michael.jpg";
+			document.getElementById("charaterDescription").innerHTML = "Whether you've claimed to be the world's best boss before or not, it looks as though you're just like Michael Scott!";
+			// console.log("Under 30")
+		}
+	} // end of theme if statement 
+	else if (localStorage.quizTaken == "harry"){
+		if(total < 7 ){
+			document.getElementById("charater").innerHTML = "Slytherin";
+			document.getElementById("imageCharater").src = "images/Results/Slytherin.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You are relentless in your pursuit of success, making you a perfect fit for Slytherin, but your willingness to take risks makes you somewhat compatible with the typical traits of Gryffindor house. People who don’t know you well are often intimidated by your reserved demeanour, and you have very few close friends. You are loyal to few, and definitely prioritise personal success over close relationships.";
+			
+			console.log("LEss than 7");
+		} else if(total >= 7 && total < 14){
+			document.getElementById("charater").innerHTML = "Hufflepuff";
+			document.getElementById("imageCharater").src = "images/Results/Hufflepuff.png";
+			document.getElementById("charaterDescription").innerHTML = "You belong in Hufflepuff without question, but your Ravenclaw-esque appreciation for knowledge means your many friends come to you when they need advice from someone with a level head. While you enjoy any kind of learning, working as part of a team is where you truly thrive. You are an excellent collaborator, and understand that communication with others is an essential part of learning and, more importantly, growing as a person.";
+			
+			console.log("Under 14");
+		} else if (total >= 14 && total < 21 ){
+			document.getElementById("charater").innerHTML = "Ravenclaw";
+			document.getElementById("imageCharater").src = "images/Results/Ravenclaw.jpg";
+			document.getElementById("charaterDescription").innerHTML = "Ravenclaw appreciation for knowledge means your many friends come to you when they need advice from someone with a level head. While you enjoy any kind of learning, working as part of a team is where you truly thrive. You are an excellent collaborator, and understand that communication with others is an essential part of learning and, more importantly, growing as a person.";
+			
+			console.log("Under 21");
+		} else {
+			document.getElementById("charater").innerHTML = "Gryffindor";
+			document.getElementById("imageCharater").src = "images/Results/Gryffindor.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You are relentless in your pursuit of success, making you a perfect fit for Gryffindor People who don’t know you well are often intimidated by your reserved demeanour, and you have very few close friends. You are loyal to few, and definitely prioritise personal success over close relationships.";
+			console.log("Under 30")
+		}
+	} // end of theme if statement 
+	else {
+		if(total < 7 ){
+			document.getElementById("charater").innerHTML = "Ahsoka";
+			document.getElementById("imageCharater").src = "images/Results/Ahsoka.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You’re proof that you don’t have to look tough to be tough. Outspoken and sometimes a little headstrong, you’ve come to understand the importance of experience and accepting you still have much to learn.";
+			console.log("LEss than 7");
+		} else if(total >= 7 && total < 14){
+			document.getElementById("charater").innerHTML = "Anakin";
+			document.getElementById("imageCharater").src = "images/Results/Anakin.jpg";
+			document.getElementById("charaterDescription").innerHTML = "Are you the One? You form strong attachments to the people in your life and have trouble letting go, it’s true. But you’ve proven time and again that you’re charismatic, courageous, and capable of greatness.";
+			console.log("Under 14");
+		} else if (total >= 14 && total < 21 ){
+			document.getElementById("charater").innerHTML = "Padmé";
+			document.getElementById("imageCharater").src = "images/Results/Padme.jpg";
+			document.getElementById("charaterDescription").innerHTML = "You understand that sometimes there are things no one can fix, but you still choose to always see the best in people. With a wisdom beyond your years, your interests lie in equality for everyone.";
+			console.log("Under 21");
+		} else {
+			document.getElementById("charater").innerHTML = "Captain Rex";
+			document.getElementById("imageCharater").src = "images/Results/Rex.png";
+			document.getElementById("charaterDescription").innerHTML = "In your book, experience outranks everything. Loyal to the core, you always stand up for what’s right and come to the aid of your friends, who you consider as close as family.";
+
+	
+
+			console.log("Under 30")
+		}
+	} // end of else statment
+}// end of function 

@@ -148,3 +148,7 @@ input.selector:hover{
 #signInButton{
     text-align: center;
 }
+img{
+    height: 300px;
+    width: 350px;
+}
